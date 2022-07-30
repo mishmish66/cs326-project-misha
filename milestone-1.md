@@ -1,6 +1,6 @@
 # Milestone 1
-## Misha
-### Motool
+---
+## Misha: Motool
 ## Team Overview
 Misha Lvovsky - mishmish66
 ## Project Idea
