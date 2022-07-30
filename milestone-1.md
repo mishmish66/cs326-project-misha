@@ -8,7 +8,16 @@ My project is a tool to make the process of finding an appropriate motor for you
 
 This tool could also ease the process of finding feedback for the motors. Many times the websites where these are available have no review system whatsoever or I have a hard time trusting the credibility of the reviews shown on their website. This could increase confidence of people ordering motors to feel that they are ordering a product with 
 ## Functionality
-- Graph which can have its axes changed to display stall torque, price, power KV, weight, and volume.
-- List which can be configured to filter and order on any of the specs that can be graphed.
-- Display pictures for each motor.
+- Specs Tracked
+    - Stall Torque
+    - Price
+    - Power
+    - KV
+    - Weight
+    - Volume
+- Graph which can have its axes changed to display any of the specs
+- List which can be configured to filter and order on any of the specs
+- Display pictures for each motor
 - Contain a link to where the motor is sold
+- Display a list of long comments about the motor with longer reviews of the motor
+- Helpfullness rating system for the reviews so that the most helpful ones appear first
