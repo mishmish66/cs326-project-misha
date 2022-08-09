@@ -1,4 +1,4 @@
-import { tableManager } from "./src/tableManager";
+import { tableManager } from "./src/tableManager.js";
 
 const labels = [
     'January',
@@ -50,6 +50,8 @@ window.addEventListener("scroll", () => {
     }
 })
 
-document.getElementById("add-button").addEventListener("click", () => {
+const tm = new tableManager(document.getElementById("main-table"));
 
+document.getElementById("add-button").addEventListener("click", () => {
+    tm
 })
