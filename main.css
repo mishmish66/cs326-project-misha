@@ -3,3 +3,24 @@ thead {
     top: 0;
     background-color: whitesmoke;
 }
+
+html,
+body {
+    margin: 0;
+    height: 100%;
+}
+
+#add-button {
+    left: 50%;
+    bottom: 0;
+}
+
+.add-button-unstuck {
+    position: absolute;
+    transform: translate(-50%, 100%);
+}
+
+.add-button-stuck {
+    position: fixed;
+    transform: translate(-50%, -25%);
+}
