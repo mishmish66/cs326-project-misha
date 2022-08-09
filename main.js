@@ -53,5 +53,4 @@ window.addEventListener("scroll", () => {
 const tm = new tableManager(document.getElementById("main-table"));
 
 document.getElementById("add-button").addEventListener("click", () => {
-    tm
 })
