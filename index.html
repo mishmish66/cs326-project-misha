@@ -19,35 +19,51 @@
     <div>
         <table class="table table-hover table-borderless w-75 position-absolute start-50 translate-middle-x"
             id="main-table">
-            <!-- style="position: sticky; top: 0" -->
-            <!-- <thead class="thead-dark">
-                <tr>
-                    <th scope="col">Motor Name</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Power</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- <tr>
-                    <th scope="row">t1-h</th>
-                    <td>t1-d1</td>
-                    <td>t1-d2</td>
-                </tr> -->
             </tbody>
         </table>
     </div>
+
     <div class="modal fade" id="input-modal" tabindex="-1" aria-labelledby="input-modal-label" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="input-modal">Modal title</h5>
+                    <h5 class="modal-title" id="input-modal-title">Modal title</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
+                <div id="input-modal-body" class="modal-body">
+                    <div id="name-field">
+                        <label for="name-input-group" class="form-label mb-1">Motor Name</label>
+                        <div id="name-input-group" class="input-group mb-2">
+                            <input id="name-input" type="text" class="form-control" placeholder="Enter a Value"
+                                aria-label="Motor Name Input" aria-describedby="Input for Motor Name">
+                        </div>
+                    </div>
+                    <div id="power-field">
+                        <label for="power-input-group" class="form-label mb-1">Power</label>
+                        <div id="power-input-group" class="input-group mb-2">
+                            <input id="power-input" type="text" class="form-control" placeholder="Enter a Value"
+                                aria-label="Power Input" aria-describedby="Input for Torque">
+                        </div>
+                    </div>
+                    <div id="torque-field">
+                        <label for="torque-input-group" class="form-label mb-1">Torque</label>
+                        <div id="torque-input-group" class="input-group mb-2">
+                            <input id="torque-input" type="text" class="form-control" placeholder="Enter a Value"
+                                aria-label="Torque Input" aria-describedby="Input for Torque">
+                        </div>
+                    </div>
+                    <div id="price-field">
+                        <label for="price-input-group" class="form-label mb-1">Price</label>
+                        <div id="price-input-group" class="input-group mb-2">
+                            <span class="input-group-text">$</span>
+                            <input id="price-input" type="text" class="form-control" placeholder="Enter a Value"
+                                aria-label="Motor Name Input" aria-describedby="Input for Motor Name">
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button id="submit-modal" type="button" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
         </div>
