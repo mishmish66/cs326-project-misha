@@ -1,17 +1,15 @@
-export class Table_Manager {
-    constructor(table, motor_data) {
-        this.table_element = table;
-        this.motor_data = motor_data;
-        this.data_displayed = [
+import { show_modal } from "./Modal_Utils.js";
+import { Motor_Data } from "./Motor_Data.js";
+
+export const Table_Manager = {
+    table_element: document.getElementById("main-table"),
+    data_displayed: [
             "name",
             "power",
             "torque",
             "price",
-        ];
-        this.render();
-    }
-
-    render_head_row(thead) {
+    ],
+    render_head_row: function (thead) {
         const head_row = document.createElement("tr");
         this.data_displayed.forEach(datum => {
             const head_row_entry = document.createElement("th");
@@ -20,15 +18,15 @@ export class Table_Manager {
             head_row.appendChild(head_row_entry);
         });
         thead.appendChild(head_row);
-    }
+    },
 
-    add_datum_to_row(datum, data_row_element) {
+    add_datum_to_row: function (datum, data_row_element) {
         const data_row_entry = document.createElement("td");
         data_row_entry.innerText = datum;
         data_row_element.appendChild(data_row_entry);
-    }
+    },
 
-    add_data_row(motor, tbody) {
+    add_data_row: function (motor, tbody) {
         const data_row_element = document.createElement('tr');
         this.data_displayed.forEach(datum => {
             this.add_datum_to_row(motor[datum], data_row_element);
@@ -37,15 +35,15 @@ export class Table_Manager {
             this.display_modal(motor.motor_id);
         });
         tbody.appendChild(data_row_element);
-    }
+    },
 
-    render_data_rows(tbody) {
-        this.motor_data.key_sort("name", true).forEach(motor => {
+    render_data_rows: function (tbody) {
+        Motor_Data.key_sort("name", true).forEach(motor => {
             this.add_data_row(motor, tbody);
         })
-    }
+    },
 
-    render() {
+    render: function () {
         this.table_element.innerHTML = "";
 
         const thead = document.createElement("thead");
@@ -56,9 +54,9 @@ export class Table_Manager {
         const tbody = document.createElement("tbody");
         this.render_data_rows(tbody);
         this.table_element.appendChild(tbody);
-    }
+    },
 
-    display_modal(motor_id) {
-        alert("Motor with motor_id: " + motor_id + " was clicked!!!");
+    display_modal: function (motor_id) {
+        show_modal(motor_id);
     }
 }
