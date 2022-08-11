@@ -51,15 +51,7 @@ window.addEventListener("scroll", () => {
     }
 })
 
-const md = new Motor_Data();
-
-const tm = new Table_Manager(document.getElementById("main-table"), md);
-
 document.getElementById("add-button").addEventListener("click", () => {
 })
 
-var input_modal = new bootstrap.Modal(document.getElementById('input-modal'), {
-    keyboard: false,
-});
-
-input_modal.show();
+Table_Manager.render();
