@@ -1,6 +1,13 @@
 import { Motor_Data } from "./Motor_Data.js"
 import { Table_Manager } from "./Table_Manager.js";
 
+const number_formatting = {
+    name: false,
+    power: true,
+    torque: true,
+    price: true,
+}
+
 
 const modal = new bootstrap.Modal(document.getElementById('input-modal'), {
     keyboard: false,
@@ -25,17 +32,39 @@ var target_id = null;
 
 function motor_modify_click() {
     if (target_id) {
-        update_motor_data(target_id);
-        target_id = null;
+        if (update_motor_data(target_id)) {
+            target_id = null;
+        }
     }
 }
 
-function update_motor_data(motor_id) {
+function verify_inputs() {
+    let pass = true;
     Object.keys(modal_fields).forEach(field_key => {
-        Motor_Data.data[motor_id][field_key] = modal_textboxes[field_key].value;
+        const textbox = modal_textboxes[field_key]
+        if (isNaN(textbox.value) && number_formatting[field_key]) {
+            textbox.classList.add("text-danger");
+            pass = false;
+        } else {
+            try {
+                modal_textboxes[field_key].classList.remove("text-danger");
+            } catch { }
+        }
+    });
+    return pass;
+}
+
+function update_motor_data(motor_id) {
+    if (!verify_inputs()) {
+        return false;
+    }
+    Object.keys(modal_fields).forEach(field_key => {
+        const textbox = modal_textboxes[field_key]
+        Motor_Data.data[motor_id][field_key] = textbox.value;
     });
     modal.hide();
     Table_Manager.render();
+    return true;
 }
 
 document.getElementById('submit-modal')
