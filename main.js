@@ -1,4 +1,5 @@
-import { tableManager } from "./src/tableManager.js";
+import { Table_Manager } from "./src/Table_Manager.js";
+import { Motor_Data } from "./src/Motor_Data.js";
 
 const labels = [
     'January',
@@ -50,7 +51,15 @@ window.addEventListener("scroll", () => {
     }
 })
 
-const tm = new tableManager(document.getElementById("main-table"));
+const md = new Motor_Data();
+
+const tm = new Table_Manager(document.getElementById("main-table"), md);
 
 document.getElementById("add-button").addEventListener("click", () => {
 })
+
+var input_modal = new bootstrap.Modal(document.getElementById('input-modal'), {
+    keyboard: false,
+});
+
+input_modal.show();
