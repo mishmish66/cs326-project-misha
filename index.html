@@ -17,7 +17,8 @@
         <canvas id="main-chart" class="container-lg"></canvas>
     </div>
     <div>
-        <table class="table table-hover table-borderless w-75 position-absolute start-50 translate-middle-x" id="main-table">
+        <table class="table table-hover table-borderless w-75 position-absolute start-50 translate-middle-x"
+            id="main-table">
             <!-- style="position: sticky; top: 0" -->
             <!-- <thead class="thead-dark">
                 <tr>
@@ -32,9 +33,26 @@
                     <td>t1-d1</td>
                     <td>t1-d2</td>
                 </tr> -->
-            </tbody> -->
+            </tbody>
         </table>
     </div>
+    <div class="modal fade" id="input-modal" tabindex="-1" aria-labelledby="input-modal-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="input-modal">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <button class="btn btn-primary add-button-unstuck" id="add-button">Add</button>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
