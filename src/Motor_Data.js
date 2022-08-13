@@ -49,6 +49,11 @@ export const Motor_Data = (() => {
             return next_motor_id++;
         },
 
+        remove_motor: function (motor_id) {
+            delete data[motor_id];
+            change();
+        },
+
         subscribe: function (name, func) {
             subscribed[name] = func;
         },
