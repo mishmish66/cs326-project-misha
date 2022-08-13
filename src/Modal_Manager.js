@@ -72,8 +72,9 @@ export const Modal_Manager = (() => {
         let pass = true;
         Object.keys(modal_fields).forEach(field_key => {
             const textbox = modal_textboxes[field_key]
-            if (isNaN(textbox.value) && number_formatting[field_key]) {
-                textbox.classList.add("text-danger");
+            if (!(textbox.value) || isNaN(textbox.value) && number_formatting[field_key]) {
+                textbox.classList.add("text-bg-danger");
+                setTimeout(() => { textbox.classList.remove("text-bg-danger")}, 600);
                 pass = false;
             } else {
                 try {
