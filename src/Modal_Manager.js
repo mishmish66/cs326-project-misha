@@ -18,6 +18,8 @@ export const Modal_Manager = (() => {
 
     document.getElementById("submit-modal").addEventListener('click', submit_modal_action);
 
+    document.getElementById("delete-button").addEventListener('click', delete_modal_action);
+
     document.getElementById("add-button").addEventListener('click', () => {
         Modal_Manager.show_modal(null);
     });
@@ -64,8 +66,12 @@ export const Modal_Manager = (() => {
                 parseFloat(textbox.value) : textbox.value);
         });
         modal.hide();
-        Table_Manager.render();
+        // Table_Manager.render();
         return true;
+    }
+
+    function delete_motor(motor_id) {
+        Motor_Data.remove_motor(motor_id);
     }
 
     function verify_inputs() {
@@ -74,7 +80,7 @@ export const Modal_Manager = (() => {
             const textbox = modal_textboxes[field_key]
             if (!(textbox.value) || isNaN(textbox.value) && number_formatting[field_key]) {
                 textbox.classList.add("text-bg-danger");
-                setTimeout(() => { textbox.classList.remove("text-bg-danger")}, 600);
+                setTimeout(() => { textbox.classList.remove("text-bg-danger") }, 600);
                 pass = false;
             } else {
                 try {
@@ -87,13 +93,26 @@ export const Modal_Manager = (() => {
 
     function submit_modal_action() {
         if (buffered_modal_submit_action) {
-            if (buffered_modal_submit_action()) {
-                buffered_modal_submit_action = null;
-            }
+            buffered_modal_submit_action()
         }
+        clear_actions();
+    }
+
+    function delete_modal_action() {
+        if (buffered_modal_delete_action) {
+            buffered_modal_delete_action();
+        }
+        clear_actions();
+        modal.hide();
     }
 
     var buffered_modal_submit_action = null;
+    var buffered_modal_delete_action = null;
+
+    function clear_actions() {
+        buffered_modal_submit_action = null;
+        buffered_modal_delete_action = null;
+    }
 
     return {
         show_modal: function show_modal(motor_id) {
@@ -117,6 +136,7 @@ export const Modal_Manager = (() => {
 
             if (motor_id) {
                 buffered_modal_submit_action = () => update_motor_data(motor_id);
+                buffered_modal_delete_action = () => delete_motor(motor_id);
             } else {
                 buffered_modal_submit_action = modal_create_new_motor;
             }
