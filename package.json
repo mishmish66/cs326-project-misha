@@ -1,5 +1,26 @@
 {
   "dependencies": {
     "chart.js": "^3.9.1"
-  }
+  },
+  "name": "cs326-project-misha",
+  "version": "1.0.0",
+  "main": "main.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mishmish66/cs326-project-misha.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mishmish66/cs326-project-misha/issues"
+  },
+  "homepage": "https://github.com/mishmish66/cs326-project-misha#readme",
+  "description": ""
 }
