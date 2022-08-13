@@ -9,6 +9,7 @@ export const Modal_Manager = (() => {
         power: true,
         torque: true,
         price: true,
+        mass: true,
     }
 
     const modal = new bootstrap.Modal(document.getElementById('input-modal'), {
@@ -26,12 +27,14 @@ export const Modal_Manager = (() => {
         power: document.getElementById("power-field"),
         torque: document.getElementById("torque-field"),
         price: document.getElementById("price-field"),
+        mass: document.getElementById("mass-field"),
     }
     const modal_textboxes = {
         name: document.getElementById("name-input"),
         power: document.getElementById("power-input"),
         torque: document.getElementById("torque-input"),
         price: document.getElementById("price-input"),
+        mass: document.getElementById("mass-input"),
     }
     const modal_title = document.getElementById("input-modal-title");
 

@@ -48,6 +48,7 @@ export const Table_Manager = (() => {
             "power",
             "torque",
             "price",
+            "mass",
         ],
 
         render: function () {
