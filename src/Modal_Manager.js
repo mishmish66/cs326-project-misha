@@ -93,9 +93,10 @@ export const Modal_Manager = (() => {
 
     function submit_modal_action() {
         if (buffered_modal_submit_action) {
-            buffered_modal_submit_action()
+            if (buffered_modal_submit_action()) {
+                clear_actions();
+            }
         }
-        clear_actions();
     }
 
     function delete_modal_action() {
