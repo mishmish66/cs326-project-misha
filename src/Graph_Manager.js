@@ -6,13 +6,11 @@ export const Graph_Manager = (() => {
     const data = {
         datasets: [{
             labels: [],
-            label: 'My First dataset',
+            label: 'Motors',
             backgroundColor: 'rgb(255, 99, 132)',
             borderColor: 'rgb(255, 99, 132)',
             data: [],
         }],
-        options: {
-        }
     }
     const config = {
         type: 'scatter',
