@@ -1,6 +1,6 @@
-import { Table_Manager } from "./client/src/Table_Manager.js.js";
+import { Table_Manager } from "./src/Table_Manager.js";
 import { Motor_Data } from "./src/Motor_Data.js";
-import { Graph_Manager } from "./client/src/Graph_Manager.js.js";
+import { Graph_Manager } from "./src/Graph_Manager.js";
 
 Graph_Manager.render();
 
