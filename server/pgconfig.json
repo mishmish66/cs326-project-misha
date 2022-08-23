@@ -1,0 +1,6 @@
+{
+    "connectionString":     "postgres://hvjobsxsqxskts:fb8665a12b5ae4d2674a1bb368a35f872656e4ee58b223b0c6fa3f0dfe3abb06@ec2-18-208-55-135.compute-1.amazonaws.com:5432/dfu20o1c4s9nrk",
+    "ssl": {
+        "rejectUnauthorized": false
+    }
+}
