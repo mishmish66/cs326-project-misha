@@ -26,19 +26,16 @@ export const Motor_Data = (() => {
                 return data[motor_id][field];
             } else { return false; }
         },
-        get_motors_array: function () {
-            const keys = Object.keys(data);
-            const as_array = keys.map(key => {
-                const copy = {};
-                Object.assign(copy, data[key]);
-                copy.motor_id = key;
-                return copy;
-            });
-            return as_array;
+        get_motors_array: async function() {
+            const response = await fetch(`/getMotors`, {
+                method: 'GET'
+              });
+              const data = (await response.json()).motors;
+              return data;
         },
 
-        key_sort: function (key, ascending) {
-            let arr = this.get_motors_array();
+        key_sort: async function (key, ascending) {
+            let arr = await this.get_motors_array();
             arr.sort((lhs, rhs) => lhs[key] > rhs[key]);
             return arr;
         },
