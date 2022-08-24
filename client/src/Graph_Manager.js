@@ -31,8 +31,8 @@ export const Graph_Manager = (() => {
         }
     }
     return {
-        render: function () {
-            const full_motor_data = Motor_Data.key_sort('name', true);
+        render: async function () {
+            const full_motor_data = await Motor_Data.key_sort('name', true);
             data.datasets[0].labels = full_motor_data.map(datum => datum.name);
             data.datasets[0].data = full_motor_data.map(datum => {
                 return {

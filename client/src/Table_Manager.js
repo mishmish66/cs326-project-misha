@@ -30,8 +30,8 @@ export const Table_Manager = (() => {
         });
         tbody.appendChild(data_row_element);
     }
-    function render_data_rows(tbody) {
-        Motor_Data.key_sort(sort_by, true).forEach(motor => {
+    async function render_data_rows(tbody) {
+        (await Motor_Data.key_sort(sort_by, true)).forEach(motor => {
             add_data_row(motor, tbody);
         })
     }
@@ -51,7 +51,7 @@ export const Table_Manager = (() => {
             "mass",
         ],
 
-        render: function () {
+        render: async function () {
             table_element.innerHTML = "";
 
             const thead = document.createElement("thead");
@@ -60,7 +60,7 @@ export const Table_Manager = (() => {
             table_element.appendChild(thead);
 
             const tbody = document.createElement("tbody");
-            render_data_rows(tbody);
+            await render_data_rows(tbody);
             table_element.appendChild(tbody);
         },
     }

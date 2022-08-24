@@ -2,7 +2,7 @@ import { Table_Manager } from "./src/Table_Manager.js";
 import { Motor_Data } from "./src/Motor_Data.js";
 import { Graph_Manager } from "./src/Graph_Manager.js";
 
-Graph_Manager.render();
+await Graph_Manager.render();
 
 window.addEventListener("scroll", () => {
     let window_bottom = window.visualViewport.pageTop + window.visualViewport.height;
@@ -21,4 +21,4 @@ window.addEventListener("scroll", () => {
 document.getElementById("add-button").addEventListener("click", () => {
 })
 
-Table_Manager.render();
+await Table_Manager.render();
