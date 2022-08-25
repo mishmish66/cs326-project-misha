@@ -24,3 +24,19 @@ body {
     position: fixed;
     transform: translate(-50%, -25%);
 }
+
+#login-button {
+    float: right;
+}
+
+#motool-title {
+    margin-left: 2%;
+    color: whitesmoke;
+}
+
+#login-container {
+    margin-right: 2%;
+    justify-content: right;
+    float: right;
+    width: 100%;
+}

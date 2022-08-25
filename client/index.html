@@ -13,6 +13,12 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <a class="navbar-brand" id="motool-title">Motool</a>
+        <div id="login-container">
+            <button id="login-button" type="button" class="btn btn-outline-light">Sign In</button>
+        </div>
+    </nav>
     <div>
         <canvas id="main-chart" class="container-lg"></canvas>
     </div>
@@ -75,6 +81,37 @@
                     <button id="delete-button" type="button" class="btn btn-danger">Delete</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button id="submit-modal" type="button" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="login-modal" tabindex="-1" aria-labelledby="login-modal-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div id="login-modal-body" class="modal-body">
+                    <!-- <div id="username-field"> -->
+                    <!-- <label for="price-input-group" class="form-label mb-1">Price</label> -->
+                    <div id="price-input-group" class="input-group mb-2">
+                        <input id="price-input" type="text" class="form-control" placeholder="Username"
+                            aria-label="Username Input" aria-describedby="Input for Username" required="true">
+                        <!-- </div> -->
+                    </div>
+                    <!-- <div id="password-field"> -->
+                    <!-- <label for="mass-input-group" class="form-label mb-1">Mass</label> -->
+                    <div id="mass-input-group" class="input-group mb-2">
+                        <input id="mass-input" type="text" class="form-control" placeholder="Password"
+                            aria-label="Password Input" aria-describedby="Input for Password" required="true">
+                    </div>
+                    <!-- </div> -->
+                </div>
+                <div class="modal-footer">
+                    <button id="submit-login-button" type="submit" class="btn btn-outline-primary">Sign In</button>
+                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
                 </div>
             </div>
         </div>
