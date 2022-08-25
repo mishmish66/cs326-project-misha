@@ -25,8 +25,8 @@ export const Table_Manager = (() => {
         Table_Manager.data_displayed.forEach(datum => {
             add_datum_to_row(motor[datum], data_row_element);
         });
-        data_row_element.addEventListener('click', () => {
-            display_modal(motor.motor_id);
+        data_row_element.addEventListener('click', async () => {
+            await display_modal(motor.id);
         });
         tbody.appendChild(data_row_element);
     }
@@ -35,8 +35,8 @@ export const Table_Manager = (() => {
             add_data_row(motor, tbody);
         })
     }
-    function display_modal(motor_id) {
-        Modal_Manager.show_modal(motor_id);
+    async function display_modal(motor_id) {
+        await Modal_Manager.show_modal(motor_id);
     }
     function change_sort(key) {
         sort_by = key;

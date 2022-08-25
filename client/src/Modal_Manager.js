@@ -20,8 +20,8 @@ export const Modal_Manager = (() => {
 
     document.getElementById("delete-button").addEventListener('click', delete_modal_action);
 
-    document.getElementById("add-button").addEventListener('click', () => {
-        Modal_Manager.show_modal(null);
+    document.getElementById("add-button").addEventListener('click', async () => {
+        await Modal_Manager.show_modal(null);
     });
 
     const modal_fields = {
@@ -40,7 +40,7 @@ export const Modal_Manager = (() => {
     }
     const modal_title = document.getElementById("input-modal-title");
 
-    function modal_create_new_motor() {
+    async function modal_create_new_motor() {
         if (!verify_inputs()) {
             return false;
         }
@@ -50,28 +50,30 @@ export const Modal_Manager = (() => {
             motor[field_key] = number_formatting[field_key] ?
                 parseFloat(textbox.value) : textbox.value;
         });
-        Motor_Data.add_motor(motor);
+        await Motor_Data.add_motor(motor);
         modal.hide();
-        Table_Manager.render();
+        await Table_Manager.render();
         return true;
     }
 
-    function update_motor_data(motor_id) {
+    async function update_motor_data(motor_id) {
         if (!verify_inputs()) {
             return false;
         }
+        const motor = {}
+        motor.id = motor_id;
         Object.keys(modal_fields).forEach(field_key => {
-            const textbox = modal_textboxes[field_key]
-            Motor_Data.assign_field(motor_id, field_key, number_formatting[field_key] ?
-                parseFloat(textbox.value) : textbox.value);
+            const textbox = modal_textboxes[field_key];
+            const val = number_formatting[field_key] ? parseFloat(textbox.value) : textbox.value;
+            motor[field_key] = val;
         });
+        await Motor_Data.update_motor(motor);
         modal.hide();
-        // Table_Manager.render();
         return true;
     }
 
-    function delete_motor(motor_id) {
-        Motor_Data.remove_motor(motor_id);
+    async function delete_motor(motor_id) {
+        await Motor_Data.remove_motor(motor_id);
     }
 
     function verify_inputs() {
@@ -99,9 +101,9 @@ export const Modal_Manager = (() => {
         }
     }
 
-    function delete_modal_action() {
+    async function delete_modal_action() {
         if (buffered_modal_delete_action) {
-            buffered_modal_delete_action();
+            await buffered_modal_delete_action();
         }
         clear_actions();
         modal.hide();
@@ -116,7 +118,7 @@ export const Modal_Manager = (() => {
     }
 
     return {
-        show_modal: function show_modal(motor_id) {
+        show_modal: async function show_modal(motor_id) {
             Object.keys(modal_fields).forEach(field_key => {
                 if (motor_id) {
                     const value = Motor_Data.id_field(motor_id, field_key);
@@ -136,8 +138,8 @@ export const Modal_Manager = (() => {
             }
 
             if (motor_id) {
-                buffered_modal_submit_action = () => update_motor_data(motor_id);
-                buffered_modal_delete_action = () => delete_motor(motor_id);
+                buffered_modal_submit_action = async () => await update_motor_data(motor_id);
+                buffered_modal_delete_action = async () => await delete_motor(motor_id);
             } else {
                 buffered_modal_submit_action = modal_create_new_motor;
             }
