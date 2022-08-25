@@ -54,14 +54,16 @@ export const database = await (async() => {
             const query = {
                 text: `
                     UPDATE motors SET
-                    name = ${motor.name},
+                    name = '${motor.name}',
                     power = ${motor.power},
                     torque = ${motor.torque},
                     price = ${motor.price},
-                    mass = ${motor.mass},
+                    mass = ${motor.mass}
                     WHERE id = ${motor.id}
                     RETURNING *`
             }
+            const data = (await client.query(query)).rows
+            return data.motor;
         },
         close: async () => { await client.release() },
     }
