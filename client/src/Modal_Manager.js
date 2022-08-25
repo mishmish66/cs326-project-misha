@@ -52,7 +52,6 @@ export const Modal_Manager = (() => {
         });
         await Motor_Data.add_motor(motor);
         modal.hide();
-        await Table_Manager.render();
         return true;
     }
 
