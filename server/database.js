@@ -26,7 +26,7 @@ export const database = await (async() => {
             const query = {
                 text: `
                 INSERT INTO motors
-                VALUES (DEFAULT, ${motor.name}, ${motor.power}, ${motor.torque}, ${motor.price}, ${motor.mass})
+                VALUES (DEFAULT, '${motor.name}', ${motor.power}, ${motor.torque}, ${motor.price}, ${motor.mass})
                 RETURNING *`,
                 rowmode: 'array'
             };
