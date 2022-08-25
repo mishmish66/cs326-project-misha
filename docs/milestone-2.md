@@ -1,4 +1,4 @@
-# Milestone 1
+# Milestone 2
 ## Data Interactions
 - Can add motor entries with data about the motor and a name
 - Can sort by any of the tracked data
